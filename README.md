@@ -60,3 +60,9 @@ To construct a **ScaDANN** index, use the following command:
 * `disk`:	Enables disk-based index construction
 * `partition`: Number of partitions for disk-based processing
 * `partition_batch`: Enables batch-based partitioning
+
+## Acknowledgments
+
+This project builds upon work from [magdalendobson](https://github.com/magdalendobson), whose code has been incorporated under the **MIT License**. We appreciate their contributions, which have influenced the development of **ScaDANN**. 
+
+Original project repository: [GitHub - magdalendobson](https://github.com/magdalendobson)
