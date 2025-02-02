@@ -1,6 +1,6 @@
 # ScaDANN: Scalable Disk-based Graph Index for ANN
 
-ScaDANN is a scalable, disk-based approximate nearest neighbor (ANN) search library designed for billion-scale datasets under memory-constrained environments. Built upon the **ParlayANN** framework and leveraging **ParlayLib**, ScaDANN introduces novel techniques such as **overlapping block-level insertion** and **grid block merge** to optimize both index construction and search performance. 
+ScaDANN is a scalable, disk-based approximate nearest neighbor (ANN) search library designed for billion-scale datasets under memory-constrained environments. Built upon the **[ParlayANN](https://github.com/cmuparlay/ParlayANN)** framework and leveraging **ParlayLib**, ScaDANN introduces novel techniques such as **overlapping block-level insertion** and **grid block merge** to optimize both index construction and search performance. 
 
 This repository provides an efficient and scalable implementation of **ScaDANN**, enabling high-performance ANN search while reducing memory overhead and I/O costs.
 
