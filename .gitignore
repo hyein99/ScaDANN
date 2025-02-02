@@ -1,7 +1,7 @@
 *.log
 *.csv
 *.vscode
-parlaylib
+parlaylib*
 
 # Build directory
 build*
