@@ -756,27 +756,27 @@ void ANN_disk(char *input_file, char *graph_file, char *out_file, char *res_file
 
   double io_time = 0.0;
 
-  // if (partition_batch) {
-  //   io_time = ANN_disk_partition_batch<Point, PointRange_, indexType, pointType>(input_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time, max_fraction, merge_ratio);
-  //   // current memory usage
-  //   long current_memory_usage = get_memory_usage();
-  //   if (current_memory_usage > max_memory_usage) {
-  //       max_memory_usage = current_memory_usage;
-  //   }
-  // } else {
-  //   // build graph partition
-  //   io_time = ANN_disk_partition<Point, PointRange_, indexType, pointType>(input_file, graph_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time);
-  //   long current_memory_usage = get_memory_usage();
-  //   if (current_memory_usage > max_memory_usage) {
-  //       max_memory_usage = current_memory_usage;
-  //   }
-  //   // merge graph partition
-  //   io_time = ANN_disk_merge<Point, PointRange_, indexType, pointType>(input_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time);
-  //   current_memory_usage = get_memory_usage();
-  //   if (current_memory_usage > max_memory_usage) {
-  //       max_memory_usage = current_memory_usage;
-  //   }
-  // }
+  if (partition_batch) {
+    io_time = ANN_disk_partition_batch<Point, PointRange_, indexType, pointType>(input_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time, max_fraction, merge_ratio);
+    // current memory usage
+    long current_memory_usage = get_memory_usage();
+    if (current_memory_usage > max_memory_usage) {
+        max_memory_usage = current_memory_usage;
+    }
+  } else {
+    // build graph partition
+    io_time = ANN_disk_partition<Point, PointRange_, indexType, pointType>(input_file, graph_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time);
+    long current_memory_usage = get_memory_usage();
+    if (current_memory_usage > max_memory_usage) {
+        max_memory_usage = current_memory_usage;
+    }
+    // merge graph partition
+    io_time = ANN_disk_merge<Point, PointRange_, indexType, pointType>(input_file, out_file, graph_built, BP, BuildStats, num_points, d, partition, io_time);
+    current_memory_usage = get_memory_usage();
+    if (current_memory_usage > max_memory_usage) {
+        max_memory_usage = current_memory_usage;
+    }
+  }
   // 전체 I/O 비용 출력
   std::cout << "Total I/O time: " << io_time << " seconds" << std::endl;
   // 최종적으로 기록된 최대 메모리 사용량 출력
